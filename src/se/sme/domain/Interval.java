@@ -1,6 +1,8 @@
 package se.sme.domain;
+import java.io.Serializable;
 
-public class Interval {
+@SuppressWarnings("serial")
+public class Interval implements Serializable {
 //0-39 Hours from now
 	private int startHour;
 	private int endHour;

@@ -2,9 +2,9 @@ package se.sme.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.ejb.Stateless;
 import se.sme.domain.Interval;
-
+@Stateless
 public class IntervalManagementImplementation implements TimeManagementService {
 
 	@Override
