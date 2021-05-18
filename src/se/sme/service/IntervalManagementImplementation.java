@@ -12,6 +12,7 @@ public class IntervalManagementImplementation implements TimeManagementService {
     
 	@Inject
 	private IntervalDao dao;
+	
 	@Override
 	public void registerInterval(Interval interval) {
 

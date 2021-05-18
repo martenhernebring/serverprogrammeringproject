@@ -7,6 +7,8 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 
 import se.sme.domain.Interval;
+
+
 @Default
 @Stateless
 public class IntervalDaoProductVersion implements IntervalDao {
