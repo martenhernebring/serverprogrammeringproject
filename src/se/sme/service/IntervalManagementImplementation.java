@@ -1,6 +1,5 @@
 package se.sme.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -10,7 +9,7 @@ import se.sme.domain.Interval;
 
 @Stateless
 public class IntervalManagementImplementation implements TimeManagementService {
-	@SuppressWarnings("unused")
+    
 	@Inject
 	private IntervalDao dao;
 	@Override
@@ -20,10 +19,7 @@ public class IntervalManagementImplementation implements TimeManagementService {
 
 	@Override
 	public List<Interval> getAllIntervals() {
-		List<Interval> list=new ArrayList<>();
-        var i = new Interval(0, 1);
-        list.add(i);
-		return list;
+		return dao.findAll();
 	}
 	@Override
 	public List<Interval> searchByStart(int start) {
