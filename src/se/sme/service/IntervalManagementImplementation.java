@@ -5,7 +5,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import se.sme.dao.IntervalDao;
-import se.sme.domain.Interval;
+import se.sme.domain.IntervalInstance;
 
 @Stateless
 public class IntervalManagementImplementation implements TimeManagementService {
@@ -14,17 +14,17 @@ public class IntervalManagementImplementation implements TimeManagementService {
 	private IntervalDao dao;
 	
 	@Override
-	public void registerInterval(Interval interval) {
-
+	public void registerInterval(IntervalInstance intervalInstance) {
+			dao.insert(intervalInstance);
 	}
 
 	@Override
-	public List<Interval> getAllIntervals() {
+	public List<IntervalInstance> getAllIntervals() {
 		return dao.findAll();
 	}
 	@Override
-	public List<Interval> searchByStart(int start) {
-		return null;
+	public List<IntervalInstance> searchByStart(int hour) {
+		return dao.findByStart(hour);
 	}
 
 }

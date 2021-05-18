@@ -5,23 +5,23 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
-import se.sme.domain.Interval;
+import se.sme.domain.IntervalInstance;
 
 @Stateless
 @Alternative
 public class IntervalDaoTestingVersion implements IntervalDao {
 
     @Override
-    public void insert(Interval newInterval) {
+    public void insert(IntervalInstance newInterval) {
 
     }
 
     @Override
-    public List<Interval> findAll() {
-        List<Interval> list = new ArrayList<>();
-        var i1 = new Interval(0, 1);
-        var i2 = new Interval(20, 25);
-        var i3 = new Interval(35,39);
+    public List<IntervalInstance> findAll() {
+        List<IntervalInstance> list = new ArrayList<>();
+        var i1 = new IntervalInstance(0, 1);
+        var i2 = new IntervalInstance(20, 25);
+        var i3 = new IntervalInstance(35,39);
         list.add(i1);
         list.add(i2);
         list.add(i3);
@@ -30,7 +30,7 @@ public class IntervalDaoTestingVersion implements IntervalDao {
     }
 
     @Override
-    public List<Interval> findByStart(int startHour) {
+    public List<IntervalInstance> findByStart(int startHour) {
         return null;
     }
 

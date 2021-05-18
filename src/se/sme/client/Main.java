@@ -1,13 +1,16 @@
 package se.sme.client;
 
-import java.util.List;
+
+//import java.util.List;
 import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import se.sme.domain.Interval;
+
+
+import se.sme.domain.IntervalInstance;
 import se.sme.service.TimeManagementService;
 
 public class Main {
@@ -18,9 +21,17 @@ public class Main {
         jndiProperties.put("jboss.naming.client.ejb.context", true);
         Context jndi = new InitialContext(jndiProperties);
         TimeManagementService service = (TimeManagementService)jndi.lookup("tm/IntervalManagementImplementation!se.sme.service.TimeManagementService");
-        List<Interval> intervals = service.getAllIntervals();
-        for(Interval i : intervals) {
-            System.out.println(i);
-        }
+
+      
+        var i1 = new IntervalInstance(0, 1);
+        var i2 = new IntervalInstance(20, 25);
+      
+	    service.registerInterval(i1);
+	    service.registerInterval(i2);
+	      
+//	    List<IntervalInstance> intervals = service.getAllIntervals();
+//        for(IntervalInstance i : intervals) {
+//            System.out.println(i);
+//        }
     }
 }

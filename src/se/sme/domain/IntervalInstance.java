@@ -8,42 +8,42 @@ import javax.persistence.Id;
 
 @Entity
 @SuppressWarnings("serial")
-public class Interval implements Serializable {
+public class IntervalInstance implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 	
 	//0-39 Hours from now
-	private int startHour;
-	private int endHour;
+	private int starthour;
+	private int endhour;
 
-	public Interval() {
+	public IntervalInstance() {
 		//requered by JPA
 	}
-	public Interval(int startHour, int endHour){
-		this.startHour=startHour;
-		this.endHour=endHour;
+	public IntervalInstance(int startHour, int endHour){
+		this.starthour=startHour;
+		this.endhour=endHour;
 	}
 
 	public void setStartHour(int startHour) {
-		this.startHour = startHour;
+		this.starthour = startHour;
 	}
 
 	public void setEndHour(int endHour) {
-		this.endHour = endHour;
+		this.endhour = endHour;
 	}
 
 	public int getStartHour() {
-		return startHour;
+		return starthour;
 	}
 
 	public int getEndHour() {
-		return endHour;
+		return endhour;
 	}
 
 	@Override
 	public String toString() {
-		return "Interval [startHour=" + startHour + ", endHour=" + endHour + "]";
+		return "IntervalInstance [startHour=" + starthour + ", endHour=" + endhour + "]";
 	}
 
 }
