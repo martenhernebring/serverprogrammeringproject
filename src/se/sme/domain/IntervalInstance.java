@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @SuppressWarnings("serial")
 public class IntervalInstance implements Serializable {
 	@Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 	
 	//0-39 Hours from now
