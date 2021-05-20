@@ -1,6 +1,7 @@
 package se.sme.client;
 
 
+import java.util.List;
 //import java.util.List;
 import java.util.Properties;
 
@@ -23,15 +24,23 @@ public class Main {
         TimeManagementService service = (TimeManagementService)jndi.lookup("tm/IntervalManagementImplementation!se.sme.service.TimeManagementService");
 
       
-        IntervalInstance i1 = new IntervalInstance(0, 1);
-        IntervalInstance i2 = new IntervalInstance(20, 25);
-      
-	    service.registerInterval(i1);
-	    service.registerInterval(i2);
-	      
-//	    List<IntervalInstance> intervals = service.getAllIntervals();
-//        for(IntervalInstance i : intervals) {
-//            System.out.println(i);
-//        }
+//        IntervalInstance i1 = new IntervalInstance(0, 1);
+//        IntervalInstance i2 = new IntervalInstance(20, 25);
+//      
+//	    service.registerInterval(i1);
+//	    service.registerInterval(i2);
+
+//	 
+        
+        List<IntervalInstance> intervals = service.getAllIntervals();
+        for (IntervalInstance Interval: intervals) {
+        	System.out.println(Interval);
+        }
+        List<IntervalInstance> IntervalInstances = service.searchByStart(0);
+        for (IntervalInstance IntervalInstance: IntervalInstances) {
+        System.out.println(IntervalInstance);
+        }
+
+
     }
 }

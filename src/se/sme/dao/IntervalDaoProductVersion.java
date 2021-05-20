@@ -35,7 +35,7 @@ public class IntervalDaoProductVersion implements IntervalDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<IntervalInstance> findByStart(int hour) {
-    	Query q = em.createQuery("select starthour from IntervalInstance intervalinstance where intervalinstance.starthour= :start", IntervalInstance.class );
+    	Query q = em.createQuery("select intervalinstance from IntervalInstance intervalinstance where intervalinstance.starthour= :start", IntervalInstance.class );
     	q.setParameter("start", hour);
     	return q.getResultList();
 
