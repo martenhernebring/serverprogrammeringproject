@@ -31,16 +31,16 @@ public class TestClient {
          
         Employee employee = response.readEntity(Employee.class);
         System.out.println(employee);
-        response.close();
-        response = client.target("http://localhost:8080/Employee/webservice/employees")
+        response.close();*/
+        Response response = client.target("http://localhost:8080/IntervalManagment/webservice/intervals")
                          .request()
                          .buildGet()
                          .invoke();
         //System.out.println(response.readEntity(String.class));
-        List<Employee> employees = response.readEntity(new GenericType<List<Employee>>() {});
-        for (Employee em : employees) {
-            System.out.println(em);
+        List<IntervalInstance> intervals = response.readEntity(new GenericType<List<IntervalInstance>>() {});
+        for (IntervalInstance ii : intervals) {
+            System.out.println(ii);
         }
-        response.close();*/
+        response.close();
     }
 }
