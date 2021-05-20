@@ -4,8 +4,6 @@
     <property name="lib" value="./lib"/>
     <property name="src" value="./src"/>
 
-
-
 	<!-- select a line that points to the path of your server deployment folder
 
     WINDOWS VERSION:
@@ -15,10 +13,12 @@
     <property name="server-dist" value="/opt/wildfly/wildfly/wildfly-10.0.0.Final/standalone/deployments"/>
     -->
 
-		<property name="server-dist" value="/Users/suzanatrajcevska/wildfly-23.0.1.Final/standalone/deployments"/>
-		<property name="server-jarfile" value="${server-dist}/tm.jar"/>
-		<property name="warfile" value="${server-dist}/IntervalManagement.war"/>	 
-	
+	<property name="server-dist" value="C:\Program Files\wildfly-23.0.1.Final\standalone\deployments\"/>
+
+
+	<property name="server-jarfile" value="${server-dist}/tm.jar"/>
+		<property name="warfile" value="${server-dist}/IntervalManagment.war"/>
+
 	    <path id="my.classpath">
 	        <pathelement path="${java.class.path}"/>
 	        <pathelement location="${bin}"/>
@@ -30,7 +30,7 @@
 	    </path>
 
 	    <target name="BuildAll"
-	            depends="clean, prep, compile,  war"
+	            depends="clean, prep, compile, serverjar, war"
 	            description="Complete rebuild.">
 	        <echo message="Build complete."/>
 	    </target>
@@ -63,6 +63,17 @@
 	        <echo message="Compiled."/>
 	    </target>
 
+		<target name="serverjar" depends="compile"
+		                         description="Build Server Jar files.">
+
+		   <jar destfile="${server-jarfile}" basedir="${bin}" >
+		   		<metainf dir="${src}/META-INF">
+		   			<include name="beans.xml" />
+		   			<include name="persistence.xml" />
+		   		</metainf>
+		   	</jar>
+		   <echo message="Built the server jar file."/>
+		</target>
 
 		<target name="war" depends="compile"
 		                         description="Build War file.">
@@ -82,7 +93,6 @@
 
 			<echo message="Built the war file."/>
 		</target>
-
 
 
 	</project>

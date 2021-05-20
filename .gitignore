@@ -4,3 +4,4 @@ build.xml
 .classpath
 .project
 lib/
+${warfile}
