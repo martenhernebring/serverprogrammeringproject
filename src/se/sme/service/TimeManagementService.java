@@ -2,10 +2,11 @@ package se.sme.service;
 
 import java.util.List;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
+
 
 import se.sme.domain.IntervalInstance;
-@Remote 
+@Local 
 public interface TimeManagementService {
 
 	public void registerInterval(IntervalInstance intervalInstance);
