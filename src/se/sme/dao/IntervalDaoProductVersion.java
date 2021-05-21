@@ -52,4 +52,13 @@ public class IntervalDaoProductVersion implements IntervalDao {
 		
 	}
 
+	@Override
+	public void addHours(int hour, int id) {
+		Query q = em.createQuery("select intervalinstance from IntervalInstance intervalinstance where intervalinstance.id= :id", IntervalInstance.class);
+		q.setParameter("id", id);
+		IntervalInstance ii = (IntervalInstance) q.getResultList().get(0);
+		ii.add(hour);
+		
+	}
+
 }

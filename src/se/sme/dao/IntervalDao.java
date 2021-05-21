@@ -16,4 +16,6 @@ public interface IntervalDao {
 
 	public void delete(IntervalInstance intervalInstance);
 
+	public void addHours(int hour, int id);
+
 }

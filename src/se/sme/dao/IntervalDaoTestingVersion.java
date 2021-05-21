@@ -40,4 +40,9 @@ public class IntervalDaoTestingVersion implements IntervalDao {
 		
 	}
 
+	@Override
+	public void addHours(int hour, int id) {
+		
+	}
+
 }

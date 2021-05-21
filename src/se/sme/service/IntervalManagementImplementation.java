@@ -33,4 +33,10 @@ public class IntervalManagementImplementation implements TimeManagementService {
 		
 	}
 
+	@Override
+	public void addHours(int hour, int id) {
+		dao.addHours(hour, id);
+		
+	}
+
 }
