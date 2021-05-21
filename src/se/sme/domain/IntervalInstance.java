@@ -21,9 +21,9 @@ public class IntervalInstance implements Serializable {
 		//Required by JPA
 	}
 	public IntervalInstance(int startHour, int endHour){
-		if(endHour<=startHour) {
-			throw new IllegalArgumentException ("endHour must be bigger than startHour");
-		}
+		if(endHour<=startHour || startHour<0) {
+			throw new IllegalArgumentException ("endHour must be bigger than startHour and both have to be positive.");
+		} 
 		this.starthour=startHour;
 		this.endhour=endHour;
 	}
@@ -34,6 +34,15 @@ public class IntervalInstance implements Serializable {
 
 	public void setEndHour(int endHour) {
 		this.endhour = endHour;
+	}
+	
+	public void add(int hour) {
+		if ((long) (endhour + hour)> Integer.MAX_VALUE) {
+			throw new IllegalArgumentException ("You have tresspassed the booking limit: " + Integer.MAX_VALUE);
+		}
+		endhour += hour;
+		starthour += hour;
+
 	}
 
 	public int getStartHour() {
