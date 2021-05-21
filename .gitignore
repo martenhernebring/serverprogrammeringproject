@@ -5,4 +5,5 @@ build.*
 .project
 lib/
 ${warfile}
+${server-jarfile}
 C:/
