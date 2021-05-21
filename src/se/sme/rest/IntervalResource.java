@@ -13,9 +13,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-//import javax.ws.rs.core.Response;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.QueryParam;
+
 
 import se.sme.domain.IntervalInstance;
 import se.sme.service.TimeManagementService;
@@ -48,26 +48,27 @@ public class IntervalResource {
     
     @DELETE
     @Path("{hour}")
-    public void delete(@PathParam("hour") int hour) {
+    public Response delete(@PathParam("hour") int hour) {
         List<IntervalInstance> li = service.searchByStart(hour);
         for (IntervalInstance i:li){
         	service.delete(i);
         }
         
 
-        //return Response.ok().build();
+        return Response.ok().build();
         
         
     }
     @PUT
     public Response update(@DefaultValue("1") @QueryParam("hour") Integer hour, @QueryParam("id") Integer id) {
     	if (hour >= 0 && id != null) {
-    		//return Response.ok(service.addHours(hour, id)).build();
-    		return Response.ok(service.addHours(hour, id)).build();
+    		//return Response.ok().build();
+    		return Response.ok ().build();
     		}
+		return null;
   
-    		return Response.status(400).build();
-    		}
+    		//return Response.status(400).build();
+    		//}
     	
        // Todo updateTodo = todoDAO.findById(hour);
 
