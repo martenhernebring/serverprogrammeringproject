@@ -37,7 +37,7 @@ public class IntervalInstance implements Serializable {
 	}
 	
 	public void add(int hour) {
-		if ((long) (endhour + hour)> Integer.MAX_VALUE) {
+		if ((long) (endhour + hour)> Integer.MAX_VALUE || hour<0) {
 			throw new IllegalArgumentException ("You have tresspassed the booking limit: " + Integer.MAX_VALUE);
 		}
 		endhour += hour;
