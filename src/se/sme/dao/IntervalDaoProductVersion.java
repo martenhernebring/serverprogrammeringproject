@@ -41,4 +41,15 @@ public class IntervalDaoProductVersion implements IntervalDao {
 
     }
 
+	@Override
+	public void delete(IntervalInstance intervalInstance) {
+	        if (!em.contains(intervalInstance)) {
+	            intervalInstance = em.merge(intervalInstance);
+	        }
+	        em.remove(intervalInstance);
+	 
+	    
+		
+	}
+
 }

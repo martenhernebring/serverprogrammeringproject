@@ -12,4 +12,5 @@ public interface TimeManagementService {
 	public void registerInterval(IntervalInstance intervalInstance);
 	public List<IntervalInstance>getAllIntervals ();
 	public List<IntervalInstance>searchByStart(int hour);
+	public void delete(IntervalInstance intervalInstance);
 }

@@ -14,4 +14,6 @@ public interface IntervalDao {
 
     public List<IntervalInstance> findByStart(int hour);
 
+	public void delete(IntervalInstance intervalInstance);
+
 }

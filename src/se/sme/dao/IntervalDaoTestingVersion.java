@@ -34,4 +34,10 @@ public class IntervalDaoTestingVersion implements IntervalDao {
         return null;
     }
 
+	@Override
+	public void delete(IntervalInstance intervalInstance) {
+	
+		
+	}
+
 }

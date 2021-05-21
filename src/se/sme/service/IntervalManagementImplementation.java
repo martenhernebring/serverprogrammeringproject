@@ -27,4 +27,10 @@ public class IntervalManagementImplementation implements TimeManagementService {
 		return dao.findByStart(hour);
 	}
 
+	@Override
+	public void delete(IntervalInstance intervalInstance) {
+		dao.delete(intervalInstance);
+		
+	}
+
 }
