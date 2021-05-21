@@ -7,3 +7,5 @@ lib/
 ${warfile}
 ${server-jarfile}
 C:/
+.settings/org.eclipse.jdt.core.prefs
+.vscode/
