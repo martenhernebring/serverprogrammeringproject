@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/** 
+*/
 @Entity
 @SuppressWarnings("serial")
 public class IntervalInstance implements Serializable {
