@@ -25,14 +25,16 @@ public class TestClient {
         response.close();*/
         
         
-        /*WebTarget target = client.target("http://localhost:8080/Employee/webservice/employees/2");
+        WebTarget target = client.target("http://localhost:8080/IntervalManagement/webservice/intervals/0");
         Invocation invocation = target.request().buildGet();
         Response response = invocation.invoke(); 
          
-        Employee employee = response.readEntity(Employee.class);
-        System.out.println(employee);
-        response.close();*/
-        Response response = client.target("http://localhost:8080/IntervalManagment/webservice/intervals")
+        List<IntervalInstance> intervals = response.readEntity(new GenericType<List<IntervalInstance>>() {});
+        for (IntervalInstance ii : intervals) {
+            System.out.println(ii);
+        }
+        response.close();
+        /*Response response = client.target("http://localhost:8080/IntervalManagement/webservice/intervals")
                          .request()
                          .buildGet()
                          .invoke();
@@ -41,6 +43,6 @@ public class TestClient {
         for (IntervalInstance ii : intervals) {
             System.out.println(ii);
         }
-        response.close();
+        response.close();*/
     }
 }
