@@ -27,5 +27,5 @@ Ett projekt som lägger till, uppdaterar, tar bort och hämtar positiva interval
 8. Unzippa och lägg till filerna från restclient.zip
 
 ## Att tänka på
-Vi fick med moduler i Eclipse med grundinställning så bytte från Java 11 till 8.
+Vi fick med moduler i Eclipse med grundinställning, bytte från Java 11 till 8.
 Viktigt att tänka på att META-INF ska ha bindestreck och ligga inuti src-filer.
