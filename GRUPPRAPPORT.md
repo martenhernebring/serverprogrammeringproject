@@ -5,13 +5,13 @@ Vi som har jobbat med projektet är Suzana Trajcevska, Mårten Hernebring och Er
 https://github.com/suzyrgo/serverprogrammeringproject
 
 ## Vem som har skrivit vad
-Vi har jobbat på projektet från 9-24 Maj, 2021.
+Projektet har pågått mellan 9-24 Maj, 2021.
 
 ## Arbetsfördelning filer
 Erik Blidner startade projektet och skriv vår domänklass IntervalInstance.java-klasserna och persistence.xml.
 Mårten Hernebring skrev filerna IntervalDaoProductVersion.java, IntervalDaoTestingVersion.java 
 och IntervalDao.java i paketet dao, beans.xml och TestClient.java.
-Suzana Trajcevska skrev filerna IntervalDaoProductVersion.java, IntervalManagmentImplementation.java, TimeManagmentService.java och i paketet service. Hon skrev även IntervalResource.java i paketet rest.
+Suzana Trajcevska skapade Dao paketet med IntervalDaoProductVersion.java, IntervalDao, och IntervalTestingDao. IntervalManagmentImplementation.java och TimeManagmentService.java  i paketet service. IntervalResource.java i paketet rest.
 
 ## Arbetsfördelningstatistik på GitHub
 martenhernebring
