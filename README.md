@@ -28,4 +28,3 @@ Ett projekt som lägger till, uppdaterar, tar bort och hämtar positiva interval
 
 ## Att tänka på
 Vi fick med moduler i Eclipse med grundinställning, bytte från Java 11 till 8.
-Viktigt att tänka på att META-INF ska ha bindestreck och ligga inuti src-filer.
