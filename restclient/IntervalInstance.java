@@ -1,11 +1,12 @@
-
-import java.io.Serializable;
+    import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/** 
+*/
 @Entity
 @SuppressWarnings("serial")
 public class IntervalInstance implements Serializable {
@@ -18,9 +19,13 @@ public class IntervalInstance implements Serializable {
 	private int endhour;
 
 	public IntervalInstance() {
-		//requered by JPA
+		//Required by JPA
 	}
 	public IntervalInstance(int startHour, int endHour){
+		if(endHour<=startHour || startHour<0) {
+		    //för testa illegala värden
+			//throw new IllegalArgumentException ("endHour must be bigger than startHour and both have to be positive.");
+		} 
 		this.starthour=startHour;
 		this.endhour=endHour;
 	}
@@ -31,6 +36,16 @@ public class IntervalInstance implements Serializable {
 
 	public void setEndHour(int endHour) {
 		this.endhour = endHour;
+	}
+	
+	public void add(int hour) {
+		if ((long) (endhour + hour)> Integer.MAX_VALUE || hour<0) {
+		    //för testa illegala värden
+			//throw new IllegalArgumentException ("You have tresspassed the booking limit: " + Integer.MAX_VALUE);
+		}
+		endhour += hour;
+		starthour += hour;
+
 	}
 
 	public int getStartHour() {
