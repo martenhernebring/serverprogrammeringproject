@@ -20,7 +20,6 @@ public class IntervalDaoProductVersion implements IntervalDao {
     @Override
     public void insert(IntervalInstance newInterval) {
     	em.persist(newInterval);
-
     }
 
     @Override
@@ -38,7 +37,6 @@ public class IntervalDaoProductVersion implements IntervalDao {
     	Query q = em.createQuery("select intervalinstance from IntervalInstance intervalinstance where intervalinstance.starthour= :start", IntervalInstance.class );
     	q.setParameter("start", hour);
     	return q.getResultList();
-
     }
 
 	@Override
@@ -47,18 +45,19 @@ public class IntervalDaoProductVersion implements IntervalDao {
 	            intervalInstance = em.merge(intervalInstance);
 	        }
 	        em.remove(intervalInstance);
-	 
-	    
-		
 	}
 
 	@Override
 	public void addHours(int hour, int id) {
 		Query q = em.createQuery("select intervalinstance from IntervalInstance intervalinstance where intervalinstance.id= :id", IntervalInstance.class);
 		q.setParameter("id", id);
-		IntervalInstance ii = (IntervalInstance) q.getResultList().get(0);
-		ii.add(hour);
-		
+		@SuppressWarnings("unchecked")
+        List<IntervalInstance> li = q.getResultList();
+		if(li == null) {
+		    throw new IllegalArgumentException("Id not saved in database");
+		}
+		System.out.println(li);
+		li.get(0).add(hour);
 	}
 
 }
